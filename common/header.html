@@ -1,0 +1,198 @@
+<script type="text/discourse-plugin" version="0.8">
+
+  const { iconNode } = require('discourse/helpers/fa-icon-node');
+  const { h } = require('virtual-dom');
+  const { applyDecorators } = require('discourse/widgets/widget');
+  const SiteHeaderComponent = require('discourse/components/site-header').default;
+  
+  const flatten = array => [].concat.apply([], array);
+  
+  SiteHeaderComponent.reopen({
+      
+    dockCheck(info) {
+      if (this.docAt === null) {
+        const outlet = $('#main-outlet');
+        if (!(outlet && outlet.length === 1)) return;
+        this.docAt = outlet.children().offset().top;
+      }
+  
+      const $body = $('body');
+      const offset = info.offset();
+      if (offset >= this.docAt) {
+        if (!this.dockedHeader) {
+          $body.addClass('docked');
+          this.dockedHeader = true;
+        }
+      } else {
+        if (this.dockedHeader) {
+          $body.removeClass('docked');
+          this.dockedHeader = false;
+        }
+      }
+    }
+      
+  });
+  
+  api.createWidget('nav-links', {
+    tagName: 'nav.links',
+  
+    html(attrs) {
+      const links = [].concat(attrs.contents());
+  
+      return [h('ul.nav.nav-pills', links.map(l => h('li', {}, l)))];
+    }
+  });
+  
+  api.createWidget('nav-icons', {
+    tagName: 'ul.icons.clearfix',
+  
+    html(attrs) {
+      const links = [].concat(attrs.contents());
+  
+      return links.map(l => h('li', {}, l));
+    }
+  });
+  
+  api.createWidget('brand-header-right', {
+    tagName: 'div.panel.clearfix',
+  
+    html(attrs) {
+      return attrs.contents();
+    },
+  });
+  
+  api.createWidget('brand-header-icons', {
+    tagName: 'ul.icons.clearfix',
+  
+    buildAttributes() {
+      return { role: 'navigation' };
+    },
+  
+    html(attrs) {
+      const hamburger = this.attach('header-dropdown', {
+                              title: 'hamburger_brand_menu',
+                              icon: 'bars',
+                              iconId: 'toggle-hamburger-brand-menu',
+                              active: attrs.hamburgerVisible,
+                              action: 'toggleHamburger'
+                            });
+      const icons = [hamburger];
+      return icons;
+    },
+  });
+  
+  api.createWidget('brand-header', {
+    tagName: 'header.b-header.clearfix',
+    buildKey: () => `header`,
+  
+    defaultState() {
+      let states =  {
+        hamburgerVisible: false
+      };
+  
+      return states;
+    },
+  
+    toggleHamburger() {
+      this.state.hamburgerVisible = !this.state.hamburgerVisible;
+    },
+  
+    generalLinks() {
+      return (Discourse.brand.links || []).map(l => this.attach('link', l));
+    },
+  
+    iconLinks() {
+      return (Discourse.brand.icons || []).map(l => this.attach('link', l));
+    },
+  
+    html(attrs, state) {
+      const { siteSettings } = this;
+      const mobileView = this.site.mobileView;
+  
+      const contents = [];
+  
+      contents.push(this.attach('brand-logo'));
+  
+      const panelContents = [];
+  
+      if(mobileView) {
+  
+        panelContents.push(this.attach('brand-header-icons', { hamburgerVisible: state.hamburgerVisible }));
+  
+        if (state.hamburgerVisible) {
+          panelContents.push(this.attach('hamburger-brand-menu', { generalLinks: this.generalLinks(), iconLinks: this.iconLinks() }));
+        }
+      } else {
+        contents.push(this.attach('nav-links', { contents: () => this.generalLinks() }));
+        panelContents.push(this.attach('nav-icons', { contents: () => this.iconLinks() }));
+      }
+  
+      contents.push(this.attach('brand-header-right', { contents: () => panelContents }));
+  
+      return h('div.wrap', h('div.contents.clearfix', contents));
+    }
+  
+  });
+  
+  api.createWidget('hamburger-brand-menu', {
+    tagName: 'div.hamburger-panel',
+  
+    panelContents(generalLinks, iconLinks) {
+      const results = [];
+  
+      results.push(this.attach('menu-links', { contents: () => generalLinks }));
+      results.push(this.attach('nav-icons', { contents: () => iconLinks }));
+  
+      return results;
+    },
+  
+    html(attrs) {
+      return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinks, attrs.iconLinks) });
+    },
+  
+    clickOutside() {
+      this.sendWidgetAction('toggleHamburger');
+   }
+  });
+  
+  const { wantsNewWindow } = require('discourse/lib/intercept-click');
+  const DiscourseURL = require('discourse/lib/url').default;
+  
+  api.createWidget('brand-logo', {
+    tagName: 'div.title',
+  
+    logo() {
+      const mobileView = this.site.mobileView;
+  
+      const mobileLogoUrl = Discourse.brand.mobileLogoUrl || "";
+      const showMobileLogo = mobileView && (mobileLogoUrl.length > 0);
+  
+      const logoUrl = Discourse.brand.logoUrl || '';
+      const title = Discourse.brand.name;
+  
+      if (showMobileLogo) {
+        return h('img#brand-logo.logo-big', { key: 'logo-mobile', attributes: { src: mobileLogoUrl, alt: title } });
+      } else if (logoUrl.length) {
+        return h('img#brand-logo.logo-big', { key: 'logo-big', attributes: { src: logoUrl, alt: title } });
+      } else {
+        return h('h2#brand-text-logo.text-logo', { key: 'logo-text' }, title);
+      }
+    },
+  
+    html() {
+      return h('a', { attributes: { href: Discourse.brand.url } }, this.logo());
+    },
+  
+    click(e) {
+      if (wantsNewWindow(e)) { return false; }
+      e.preventDefault();
+  
+      DiscourseURL.routeToTag($(e.target).closest('a')[0]);
+      return false;
+    }
+  });
+  
+  </script>
+  <script type='text/x-handlebars' data-template-name='/connectors/above-site-header/brand-header'>
+  {{mount-widget widget="brand-header"}}
+  </script>
