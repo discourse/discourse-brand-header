@@ -170,10 +170,10 @@
     logo() {
       const mobileView = this.site.mobileView;
   
-      const mobileLogoUrl = settings.mobileLogoUrl;
+      const mobileLogoUrl = settings.mobileLogoUrl || "";
       const showMobileLogo = mobileView && (mobileLogoUrl.length > 0);
   
-      const logoUrl = settings.logoUrl;
+      const logoUrl = settings.logoUrl || "";
       const title = settings.brand_name;
   
       if (showMobileLogo) {
