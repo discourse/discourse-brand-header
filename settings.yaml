@@ -1,0 +1,14 @@
+brand_name:
+  default: ''
+website_url:
+  default: ''
+logo_url:
+  default: ''
+mobile_logo_url:
+  default: ''
+links:
+  type: list
+  default: ''
+icons:
+  type: list
+  default: ''

@@ -98,11 +98,17 @@
     },
   
     generalLinks() {
-      return (Discourse.brand.links || []).map(l => this.attach('link', l));
+      return settings.links.split("|").map(l => {
+        const values = l.split(",");
+        return this.attach('link', { rawLabel: values[0], href: values[1] });
+      });
     },
   
     iconLinks() {
-      return (Discourse.brand.icons || []).map(l => this.attach('link', l));
+      return settings.icons.split("|").map(l => {
+        const values = l.split(",");
+        return this.attach('link', { icon: values[0], href: values[1] });
+      });
     },
   
     html(attrs, state) {
@@ -164,11 +170,11 @@
     logo() {
       const mobileView = this.site.mobileView;
   
-      const mobileLogoUrl = Discourse.brand.mobileLogoUrl || "";
+      const mobileLogoUrl = settings.mobileLogoUrl;
       const showMobileLogo = mobileView && (mobileLogoUrl.length > 0);
   
-      const logoUrl = Discourse.brand.logoUrl || '';
-      const title = Discourse.brand.name;
+      const logoUrl = settings.logoUrl;
+      const title = settings.brand_name;
   
       if (showMobileLogo) {
         return h('img#brand-logo.logo-big', { key: 'logo-mobile', attributes: { src: mobileLogoUrl, alt: title } });
@@ -180,7 +186,7 @@
     },
   
     html() {
-      return h('a', { attributes: { href: Discourse.brand.url } }, this.logo());
+      return h('a', { attributes: { href: settings.website_url } }, this.logo());
     },
   
     click(e) {
