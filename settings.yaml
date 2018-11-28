@@ -12,3 +12,6 @@ links:
 icons:
   type: list
   default: ''
+custom_font_awesome_icons:
+  type: list
+  default: ''
