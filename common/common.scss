@@ -69,7 +69,7 @@
       float: left;
       list-style: none;
     }
-    [class^="fa fa-"] {
+    a, [class^="fa fa-"] {
       width: 28px;
       height: 28px;
       font-size: 16px;
@@ -81,7 +81,7 @@
 
   .panel > ul.icons {
     float: right;
-    [class^="fa fa-"] {
+    a, [class^="fa fa-"] {
       color: $secondary;
     }
   }
