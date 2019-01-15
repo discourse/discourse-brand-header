@@ -87,11 +87,11 @@
   }
 }
 
-.d-header {
+.ember-application .d-header {
     margin-top: 48px;
 }
 
-.docked .d-header {
+.docked .ember-application .d-header {
     margin-top: 0;
 }
 
