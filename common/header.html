@@ -1,5 +1,18 @@
 <script type="text/discourse-plugin" version="0.8">
 
+  /**
+   *
+   * Activate widget in the CSS domain at runtime to hack
+   * the rendering problem on "static" and "no_ember" pages away.
+   *
+   * See also:
+   * https://meta.discourse.org/t/brand-header-theme-component-breaks-page-layout-on-static-and-no-ember-pages/106544/4
+   *
+  **/
+  $(document).ready(function() {
+    $('.d-header').addClass('d-header-branded');
+  });
+
   const { h } = require('virtual-dom');
   const { applyDecorators } = require('discourse/widgets/widget');
   const SiteHeaderComponent = require('discourse/components/site-header').default;
