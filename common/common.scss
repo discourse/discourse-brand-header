@@ -23,7 +23,7 @@
       float: right;
       margin-left: 24px;
       margin-right: 0;
-	}
+    }
   }
 
   #brand-logo {
@@ -39,7 +39,7 @@
     float: left;
     .rtl & {
       float: right;
-	}
+    }
   }
 
   .nav-pills {
@@ -63,7 +63,7 @@
     position: relative;
     .rtl & {
       float: left;
-	}
+    }
   }
 
   .menu-panel {
@@ -74,7 +74,7 @@
     .rtl & {
       right: inherit;
       left: -10px;
-	}
+    }
   }
 
   ul.icons {
@@ -94,9 +94,9 @@
     }
     .rtl & {
         margin: 0 5px 0 0;
-  	  > li {
-  	  float: right;
-  	  }
+      > li {
+        float: right;
+      }
     }
   }
 
@@ -174,8 +174,8 @@
       width: 215px;
       overflow: hidden;
       .rtl & {
-      float: right;
-      margin:15px 10px 10px 30px;
+        float: right;
+        margin:15px 10px 10px 30px;
       }
     }
     h1 {
@@ -195,13 +195,13 @@
         }
       }
       .rtl & {
-      float: left;
-      margin-left: 0;
-      margin-right: 30px;
-      ul {
-        margin: 0 10px 0 0;
+        float: left;
+        margin-left: 0;
+        margin-right: 30px;
+        ul {
+          margin: 0 10px 0 0;
         }
-	  }
+      }
     }
   }
 }
