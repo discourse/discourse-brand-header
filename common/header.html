@@ -2,35 +2,8 @@
 
   const { h } = require('virtual-dom');
   const { applyDecorators } = require('discourse/widgets/widget');
-  const SiteHeaderComponent = require('discourse/components/site-header').default;
   
   const flatten = array => [].concat.apply([], array);
-  
-  SiteHeaderComponent.reopen({
-      
-    dockCheck(info) {
-      if (this.docAt === null) {
-        const outlet = $('#main-outlet');
-        if (!(outlet && outlet.length === 1)) return;
-        this.docAt = outlet.children().offset().top;
-      }
-  
-      const $body = $('body');
-      const offset = info.offset();
-      if (offset >= this.docAt) {
-        if (!this.dockedHeader) {
-          $body.addClass('docked');
-          this.dockedHeader = true;
-        }
-      } else {
-        if (this.dockedHeader) {
-          $body.removeClass('docked');
-          this.dockedHeader = false;
-        }
-      }
-    }
-      
-  });
   
   api.createWidget('nav-links', {
     tagName: 'nav.links',
