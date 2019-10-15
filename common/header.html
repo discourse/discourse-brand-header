@@ -70,17 +70,29 @@
     },
   
     generalLinks() {
-      return settings.links.split("|").map(l => {
-        const values = l.split(",");
-        return this.attach('link', { rawLabel: values[0], href: values[1] });
-      });
+      const links = settings.links;
+
+      if (links) {
+        return links.split("|").map(l => {
+          const values = l.split(",");
+          return this.attach('link', { rawLabel: values[0], href: values[1] });
+        });
+      } else {
+        return [];
+      }
     },
   
     iconLinks() {
-      return settings.icons.split("|").map(l => {
-        const values = l.split(",");
-        return this.attach('link', { icon: values[0], href: values[1] });
-      });
+      const icons = settings.icons;
+
+      if (icons) {
+        return icons.split("|").map(l => {
+          const values = l.split(",");
+          return this.attach('link', { icon: values[0], href: values[1] });
+        });
+      } else {
+        return [];
+      }
     },
   
     html(attrs, state) {
