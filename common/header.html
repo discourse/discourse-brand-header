@@ -2,6 +2,7 @@
 
   const { h } = require('virtual-dom');
   const { applyDecorators } = require('discourse/widgets/widget');
+  const { later } = require("@ember/runloop");
   
   const flatten = array => [].concat.apply([], array);
   
@@ -64,9 +65,15 @@
   
       return states;
     },
-  
+
     toggleHamburger() {
-      this.state.hamburgerVisible = !this.state.hamburgerVisible;
+      if (!this.state.hamburgerVisible && $(".header-cloak").css("display") === "block") {
+        later(() => {
+          this.sendWidgetAction("toggleHamburger")
+        }, 200);
+      } else {
+        this.state.hamburgerVisible = !this.state.hamburgerVisible;
+      }
     },
   
     generalLinks() {
