@@ -15,3 +15,10 @@ icons:
 custom_font_awesome_icons:
   type: list
   default: ''
+location:
+  default: above
+  type: enum
+  choices:
+    - above
+    - below
+  description: "Whether to display the brand header above or below the header"
