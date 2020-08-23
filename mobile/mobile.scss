@@ -1,0 +1,31 @@
+.b-header {
+
+  .title {
+    padding: 0.5em;
+    a {
+      color: $tertiary;
+    }
+    &:visited {
+      color: $tertiary;
+    }
+  }
+
+  .menu-panel li a.widget-link {
+    width: auto;
+  }
+
+  > ul.icons {
+    margin: 0 10px 0 0;
+  }
+}
+
+#toggle-hamburger-brand-menu {
+  margin: 0;
+
+  .d-icon {
+    font-size: 1.143em;
+    vertical-align: middle;
+  }
+}
+
+.profiler-results { display: none ; }
