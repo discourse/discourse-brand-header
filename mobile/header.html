@@ -1,0 +1,102 @@
+<script type="text/discourse-plugin" version="0.8">
+  const { h } = require('virtual-dom');
+  const { later } = require('@ember/runloop');
+
+  api.createWidget('brand-header-icon', {
+    tagName: 'ul.icons.clearfix',
+  
+    buildAttributes() {
+      return { role: 'navigation' };
+    },
+  
+    html(attrs) {
+      const hamburger = this.attach('header-dropdown', {
+                              title: 'hamburger_brand_menu',
+                              icon: 'bars',
+                              iconId: 'toggle-hamburger-brand-menu',
+                              active: attrs.brandMenuVisible,
+                              action: 'toggleBrandMenu'
+                            });
+      const icons = [hamburger];
+      return icons;
+    },
+  });
+
+  api.createWidget('hamburger-brand-menu', {
+    tagName: 'div.hamburger-panel',
+  
+    panelContents(generalLinks, iconLinks) {
+      const results = [];
+  
+      results.push(this.attach('brand-logo'));
+      results.push(h('hr'));
+      results.push(this.attach('menu-links', { contents: () => generalLinks }));
+      results.push(this.attach('nav-icons', { contents: () => iconLinks }));
+  
+      return results;
+    },
+  
+    html(attrs) {
+      return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinks, attrs.iconLinks) });
+    },
+
+    clickOutside(e) {
+      const $centeredElement = $(document.elementFromPoint(e.clientX, e.clientY));
+      if (
+        $centeredElement.parents(".panel").length &&
+        !$centeredElement.hasClass("header-cloak")
+      ) {
+        this.sendWidgetAction("toggleBrandMenu");
+      } else {
+        const $window = $(window);
+        const windowWidth = $window.width();
+        const $panel = $(".menu-panel");
+        $panel.addClass("animate");
+        $panel.css("right", -windowWidth);
+        const $headerCloak = $(".header-cloak");
+        $headerCloak.addClass("animate");
+        $headerCloak.css("opacity", 0);
+        later(() => this.sendWidgetAction("toggleBrandMenu"), 200);
+      }
+    }
+  });
+
+  api.reopenWidget('brand-header', {
+  
+    defaultState() {
+      let states =  {
+        brandMenuVisible: false
+      };
+  
+      return states;
+    },
+  
+    toggleBrandMenu() {
+      this.state.brandMenuVisible = !this.state.brandMenuVisible;
+
+      if (!this.state.brandMenuVisible) {
+        const $headerCloak = $(".header-cloak");
+        $headerCloak.removeClass("animate");
+        $headerCloak.hide();
+        $headerCloak.attr("style", "");
+      }
+    },
+  
+    html(attrs, state) {
+      const { siteSettings } = this;
+      const panelContents = [];
+  
+      panelContents.push(this.attach('brand-header-icon', { brandMenuVisible: state.brandMenuVisible }));
+
+      if (state.brandMenuVisible) {
+        panelContents.push(this.attach('hamburger-brand-menu', { generalLinks: this.generalLinks(), iconLinks: this.iconLinks() }));
+      }
+  
+      return panelContents;
+    }
+  });
+
+  api.decorateWidget("home-logo:before", helper => {
+    return [helper.widget.attach('brand-header')];
+  });
+</script>

@@ -1,0 +1,32 @@
+@import "theme_variables";
+
+.b-header {
+  width: 100%;
+  background-color: $tertiary;
+  height: 48px;
+  margin-bottom: 0;
+
+  .title {
+    float: left;
+    margin-right: 24px;
+    a {
+      color: $secondary;
+    }
+    &:visited {
+      color: $secondary;
+    }
+    .rtl & {
+      float: right;
+      margin-left: 24px;
+      margin-right: 0;
+    }
+  }
+}
+
+.ember-application .d-header {
+    margin-top: 48px;
+}
+
+.docked .ember-application .d-header {
+    margin-top: 0;
+}

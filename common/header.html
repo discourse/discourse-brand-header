@@ -33,47 +33,9 @@
     },
   });
   
-  api.createWidget('brand-header-icons', {
-    tagName: 'ul.icons.clearfix',
-  
-    buildAttributes() {
-      return { role: 'navigation' };
-    },
-  
-    html(attrs) {
-      const hamburger = this.attach('header-dropdown', {
-                              title: 'hamburger_brand_menu',
-                              icon: 'bars',
-                              iconId: 'toggle-hamburger-brand-menu',
-                              active: attrs.hamburgerVisible,
-                              action: 'toggleHamburger'
-                            });
-      const icons = [hamburger];
-      return icons;
-    },
-  });
-  
   api.createWidget('brand-header', {
     tagName: 'header.b-header.clearfix',
     buildKey: () => `header`,
-  
-    defaultState() {
-      let states =  {
-        hamburgerVisible: false
-      };
-  
-      return states;
-    },
-
-    toggleHamburger() {
-      if (!this.state.hamburgerVisible && $(".header-cloak").css("display") === "block") {
-        Ember.run.later(() => {
-          this.sendWidgetAction("toggleHamburger")
-        }, 200);
-      } else {
-        this.state.hamburgerVisible = !this.state.hamburgerVisible;
-      }
-    },
   
     generalLinks() {
       const links = settings.links;
@@ -111,44 +73,14 @@
   
       const panelContents = [];
   
-      if(mobileView) {
-  
-        panelContents.push(this.attach('brand-header-icons', { hamburgerVisible: state.hamburgerVisible }));
-  
-        if (state.hamburgerVisible) {
-          panelContents.push(this.attach('hamburger-brand-menu', { generalLinks: this.generalLinks(), iconLinks: this.iconLinks() }));
-        }
-      } else {
-        contents.push(this.attach('nav-links', { contents: () => this.generalLinks() }));
-        panelContents.push(this.attach('nav-icons', { contents: () => this.iconLinks() }));
-      }
+      contents.push(this.attach('nav-links', { contents: () => this.generalLinks() }));
+      panelContents.push(this.attach('nav-icons', { contents: () => this.iconLinks() }));
   
       contents.push(this.attach('brand-header-right', { contents: () => panelContents }));
   
       return h('div.wrap', h('div.contents.clearfix', contents));
     }
   
-  });
-  
-  api.createWidget('hamburger-brand-menu', {
-    tagName: 'div.hamburger-panel',
-  
-    panelContents(generalLinks, iconLinks) {
-      const results = [];
-  
-      results.push(this.attach('menu-links', { contents: () => generalLinks }));
-      results.push(this.attach('nav-icons', { contents: () => iconLinks }));
-  
-      return results;
-    },
-  
-    html(attrs) {
-      return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinks, attrs.iconLinks) });
-    },
-  
-    clickOutside() {
-      this.sendWidgetAction('toggleHamburger');
-   }
   });
   
   const { wantsNewWindow } = require('discourse/lib/intercept-click');
@@ -188,7 +120,4 @@
     }
   });
   
-  </script>
-  <script type='text/x-handlebars' data-template-name='/connectors/above-site-header/brand-header'>
-  {{mount-widget widget="brand-header"}}
-  </script>
+</script>

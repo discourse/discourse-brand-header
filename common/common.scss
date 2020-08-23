@@ -1,29 +1,9 @@
 @import "theme_variables";
 
 .b-header {
-  width: 100%;
-  background-color: $tertiary;
-  height: 48px;
-  margin-bottom: 0;
 
   .contents {
     margin: 8px 0;
-  }
-
-  .title {
-    float: left;
-    margin-right: 24px;
-    a {
-      color: $secondary;
-    }
-    &:visited {
-      color: $secondary;
-    }
-    .rtl & {
-      float: right;
-      margin-left: 24px;
-      margin-right: 0;
-    }
   }
 
   #brand-logo {
@@ -66,17 +46,6 @@
     }
   }
 
-  .menu-panel {
-    position: absolute;
-    top: 100%;
-    right: -10px;
-    z-index: 1001;
-    .rtl & {
-      right: inherit;
-      left: -10px;
-    }
-  }
-
   ul.icons {
     text-align: center;
     margin: 0 0 0 5px;
@@ -109,12 +78,4 @@
       float: left;
     }
   }
-}
-
-.ember-application .d-header {
-    margin-top: 48px;
-}
-
-.docked .ember-application .d-header {
-    margin-top: 0;
 }
