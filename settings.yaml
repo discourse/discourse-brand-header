@@ -1,17 +1,20 @@
 brand_name:
-  default: ''
+  default: ""
 website_url:
-  default: ''
+  default: ""
 logo_url:
-  default: ''
+  default: ""
 mobile_logo_url:
-  default: ''
+  default: ""
 links:
   type: list
-  default: ''
+  list_type: simple
+  default: ""
 icons:
   type: list
-  default: ''
+  list_type: simple
+  default: ""
 custom_font_awesome_icons:
   type: list
-  default: ''
+  list_type: simple
+  default: ""
