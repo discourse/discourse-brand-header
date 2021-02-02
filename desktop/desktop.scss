@@ -1,8 +1,6 @@
-@import "theme_variables";
-
 .b-header {
   width: 100%;
-  background-color: $tertiary;
+  background-color: var(--tertiary);
   height: 48px;
   margin-bottom: 0;
 
@@ -10,10 +8,10 @@
     float: left;
     margin-right: 24px;
     a {
-      color: $secondary;
+      color: var(--secondary);
     }
     &:visited {
-      color: $secondary;
+      color: var(--secondary);
     }
     .rtl & {
       float: right;

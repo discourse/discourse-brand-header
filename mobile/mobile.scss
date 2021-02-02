@@ -1,12 +1,11 @@
 .b-header {
-
   .title {
     padding: 0.5em;
     a {
-      color: $tertiary;
+      color: var(--tertiary);
     }
     &:visited {
-      color: $tertiary;
+      color: var(--tertiary);
     }
   }
 
@@ -28,4 +27,6 @@
   }
 }
 
-.profiler-results { display: none ; }
+.profiler-results {
+  display: none;
+}

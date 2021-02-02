@@ -1,7 +1,4 @@
-@import "theme_variables";
-
 .b-header {
-
   .contents {
     margin: 8px 0;
   }
@@ -25,15 +22,16 @@
   .nav-pills {
     margin-bottom: 0;
     > li > a {
-      color: $secondary;
+      color: var(--secondary);
       line-height: 22px;
       &:hover {
-        color: $quaternary;
-        background-color: dark-light-diff($quaternary, $tertiary, -70%, 70%);
+        color: var(--quaternary);
+        background-color: var(quaternary-low);
       }
-      &.active > a, > a.active {
-        color: $secondary;
-        background-color: $quaternary;
+      &.active > a,
+      > a.active {
+        color: var(--secondary);
+        background-color: var(--quaternary);
       }
     }
   }
@@ -53,7 +51,7 @@
       float: left;
       list-style: none;
     }
-    a, [class^="fa fa-"] {
+    a {
       width: 28px;
       height: 28px;
       font-size: 16px;
@@ -62,7 +60,7 @@
       margin: 2px;
     }
     .rtl & {
-        margin: 0 5px 0 0;
+      margin: 0 5px 0 0;
       > li {
         float: right;
       }
@@ -71,8 +69,9 @@
 
   .panel > ul.icons {
     float: right;
-    a, [class^="fa fa-"] {
-      color: $secondary;
+    a,
+    .d-icon {
+      color: var(--secondary);
     }
     .rtl & {
       float: left;
