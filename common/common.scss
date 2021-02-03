@@ -26,7 +26,7 @@
       line-height: 22px;
       &:hover {
         color: var(--quaternary);
-        background-color: var(quaternary-low);
+        background-color: var(--quaternary-low);
       }
       &.active > a,
       > a.active {
