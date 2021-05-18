@@ -10,11 +10,17 @@ links:
   type: list
   list_type: simple
   default: ""
+  description: "Format: name,url,target (optional)"
 icons:
   type: list
   list_type: simple
   default: ""
+  description: "Format: icon-name,url,target (optional)"
 custom_font_awesome_icons:
   type: list
   list_type: simple
   default: ""
+  description: "List of FontAwesome 5 icons used in this theme component"
+show_bar_on_mobile:
+  type: bool
+  default: false

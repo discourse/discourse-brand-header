@@ -4,11 +4,11 @@
 
   api.createWidget('brand-header-icon', {
     tagName: 'ul.icons.clearfix',
-  
+
     buildAttributes() {
       return { role: 'navigation' };
     },
-  
+
     html(attrs) {
       const hamburger = this.attach('header-dropdown', {
                               title: 'hamburger_brand_menu',
@@ -24,18 +24,18 @@
 
   api.createWidget('hamburger-brand-menu', {
     tagName: 'div.hamburger-panel',
-  
+
     panelContents(generalLinks, iconLinks) {
       const results = [];
-  
+
       results.push(this.attach('brand-logo'));
       results.push(h('hr'));
       results.push(this.attach('menu-links', { contents: () => generalLinks }));
       results.push(this.attach('nav-icons', { contents: () => iconLinks }));
-  
+
       return results;
     },
-  
+
     html(attrs) {
       return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinks, attrs.iconLinks) });
     },
@@ -61,42 +61,43 @@
     }
   });
 
-  api.reopenWidget('brand-header', {
-  
-    defaultState() {
-      let states =  {
-        brandMenuVisible: false
-      };
-  
-      return states;
-    },
-  
-    toggleBrandMenu() {
-      this.state.brandMenuVisible = !this.state.brandMenuVisible;
+  if (!settings.show_bar_on_mobile) {
+    api.reopenWidget('brand-header', {
+      defaultState() {
+        let states =  {
+          brandMenuVisible: false
+        };
 
-      if (!this.state.brandMenuVisible) {
-        const $headerCloak = $(".header-cloak");
-        $headerCloak.removeClass("animate");
-        $headerCloak.hide();
-        $headerCloak.attr("style", "");
+        return states;
+      },
+
+      toggleBrandMenu() {
+        this.state.brandMenuVisible = !this.state.brandMenuVisible;
+
+        if (!this.state.brandMenuVisible) {
+          const $headerCloak = $(".header-cloak");
+          $headerCloak.removeClass("animate");
+          $headerCloak.hide();
+          $headerCloak.attr("style", "");
+        }
+      },
+
+      html(attrs, state) {
+        const { siteSettings } = this;
+        const panelContents = [];
+
+        panelContents.push(this.attach('brand-header-icon', { brandMenuVisible: state.brandMenuVisible }));
+
+        if (state.brandMenuVisible) {
+          panelContents.push(this.attach('hamburger-brand-menu', { generalLinks: this.generalLinks(), iconLinks: this.iconLinks() }));
+        }
+
+        return panelContents;
       }
-    },
-  
-    html(attrs, state) {
-      const { siteSettings } = this;
-      const panelContents = [];
-  
-      panelContents.push(this.attach('brand-header-icon', { brandMenuVisible: state.brandMenuVisible }));
+    });
 
-      if (state.brandMenuVisible) {
-        panelContents.push(this.attach('hamburger-brand-menu', { generalLinks: this.generalLinks(), iconLinks: this.iconLinks() }));
-      }
-  
-      return panelContents;
-    }
-  });
-
-  api.decorateWidget("home-logo:before", helper => {
-    return [helper.widget.attach('brand-header')];
-  });
+    api.decorateWidget("home-logo:before", helper => {
+      return [helper.widget.attach('brand-header')];
+    });
+  }
 </script>
