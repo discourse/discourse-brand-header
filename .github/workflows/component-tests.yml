@@ -139,9 +139,14 @@ jobs:
         if: steps.app-cache.outputs.cache-hit != 'true'
         run: rm -rf tmp/app-cache/uploads && cp -r public/uploads tmp/app-cache/uploads
 
+      - name: Create theme archive
+        run: |
+          cd tmp/component
+          git archive --format=tar.gz HEAD > ../../theme.tar.gz
+
       - name: Component QUnit
         run: |
           THEME_NAME=$(ruby -e 'require "json"; puts JSON.parse(File.read("tmp/component/about.json"))["name"]')
-          bundle exec rake themes:install -- "--{\"$THEME_NAME\": \"tmp/component\"}"
+          THEME_ARCHIVE=theme.tar.gz bundle exec rake themes:install:archive
           UNICORN_TIMEOUT=120 bundle exec rake "themes:qunit[name,$THEME_NAME]"
         timeout-minutes: 10
