@@ -35,7 +35,7 @@ jobs:
         shell: bash
         run: |
           yarn prettier -v
-          files=$(find javascripts desktop mobile common scss -type f \( -name "*.scss" -or -name "*.js" -or -name "*.es6" \) 2> /dev/null) || true
+          files=$(find javascripts desktop mobile common scss -type f \( -name "*.scss" -or -name "*.js" -or -name "*.es6" -or -name "*.hbs" \) 2> /dev/null) || true
           if [ -n "$files" ]; then
             yarn prettier --list-different $files
           fi
