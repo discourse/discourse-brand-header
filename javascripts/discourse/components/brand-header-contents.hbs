@@ -1,0 +1,44 @@
+<div class="title">
+  <a href={{theme-setting "website_url"}}>
+    {{#if this.brandLogo.url}}
+      <img
+        id="brand-logo"
+        class="logo-big"
+        src={{this.brandLogo.url}}
+        title={{this.brandLogo.title}}
+      />
+    {{else}}
+      <h2 id="#brand-text-logo" class="text-logo">
+        {{theme-setting "brand_name"}}
+      </h2>
+    {{/if}}
+  </a>
+</div>
+
+{{#if this.textLinks}}
+  <nav class="links">
+    <ul class="nav {{if this.shouldShow 'nav-pills'}}">
+      {{#each this.textLinks as |tl|}}
+        <li>
+          <a href={{tl.href}} target={{tl.target}}>
+            {{tl.rawLabel}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+{{/if}}
+
+{{#if this.iconLinks}}
+  <div class="panel">
+    <ul class="icons">
+      {{#each this.iconLinks as |il|}}
+        <li>
+          <a href={{il.href}} target={{il.target}}>
+            {{d-icon il.rawLabel}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
