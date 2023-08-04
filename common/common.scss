@@ -1,80 +1,99 @@
-.b-header {
-  .contents {
-    margin: 8px 0;
-  }
-
+.b-header,
+.brand-header-widgetized {
   #brand-logo {
     max-height: 32px;
   }
-
-  #brand-text-logo {
-    line-height: 32px;
+  h2 {
     margin: 0;
   }
+}
 
-  nav.links {
-    float: left;
-    .rtl & {
-      float: right;
-    }
-  }
+.above-site-header-outlet {
+  .b-header {
+    width: 100%;
+    background-color: var(--tertiary);
+    margin-bottom: 0;
 
-  .nav-pills {
-    margin: 0;
-    > li > a {
-      color: var(--secondary);
-      line-height: 22px;
-      &:hover {
-        color: var(--quaternary);
-        background-color: var(--quaternary-low);
+    .title {
+      float: left;
+      margin-right: 24px;
+      .rtl & {
+        margin-left: 24px;
+        margin-right: 0;
       }
-      &.active > a,
-      > a.active {
+
+      a {
         color: var(--secondary);
-        background-color: var(--quaternary);
+        &:visited {
+          color: var(--secondary);
+        }
       }
     }
-  }
 
-  .panel {
-    float: right;
-    position: relative;
-    .rtl & {
-      float: left;
+    .wrap {
+      box-sizing: border-box;
     }
-  }
 
-  ul.icons {
-    text-align: center;
-    margin: 0 0 0 5px;
-    > li {
-      float: left;
+    .contents {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 8px 0;
+    }
+
+    #brand-text-logo {
+      margin: 0;
+    }
+
+    nav.links {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .nav-pills {
+      margin: 0;
+
+      > li > a {
+        min-width: 0;
+        color: var(--secondary);
+        @include ellipsis;
+        &:hover {
+          color: var(--quaternary);
+          background-color: var(--quaternary-low);
+        }
+        &.active > a,
+        > a.active {
+          color: var(--secondary);
+          background-color: var(--quaternary);
+        }
+      }
+    }
+
+    .panel {
+      margin: 0 0 0 auto;
+      .rtl & {
+        margin: 0 auto 0 0;
+      }
+    }
+
+    ul.icons {
+      text-align: center;
+      margin: 0 0 0 5px;
       list-style: none;
-    }
-    a {
-      width: 28px;
-      height: 28px;
-      font-size: 16px;
-      line-height: 28px;
-      display: inline-block;
-      margin: 2px;
-    }
-    .rtl & {
-      margin: 0 5px 0 0;
-      > li {
-        float: right;
+
+      a {
+        width: 28px;
+        height: 28px;
+        font-size: var(--font-up-1);
+        margin: 2px;
       }
     }
-  }
 
-  .panel > ul.icons {
-    float: right;
-    a,
-    .d-icon {
-      color: var(--secondary);
-    }
-    .rtl & {
-      float: left;
+    .panel > ul.icons {
+      a,
+      .d-icon {
+        color: var(--secondary);
+      }
     }
   }
 }
