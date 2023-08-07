@@ -1,0 +1,22 @@
+.b-header {
+  width: 100%;
+  background-color: var(--tertiary);
+  height: 48px;
+  margin-bottom: 0;
+
+  .title {
+    float: left;
+    margin-right: 24px;
+    a {
+      color: var(--secondary);
+    }
+    &:visited {
+      color: var(--secondary);
+    }
+    .rtl & {
+      float: right;
+      margin-left: 24px;
+      margin-right: 0;
+    }
+  }
+}
