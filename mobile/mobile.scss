@@ -1,55 +1,59 @@
+.b-header {
+  .title {
+    padding: 0.5em;
+    a {
+      color: var(--tertiary);
+    }
+    &:visited {
+      color: var(--tertiary);
+    }
+  }
+
+  .menu-panel li a.widget-link {
+    width: auto;
+  }
+
+  > ul.icons {
+    margin: 0 10px 0 0;
+  }
+}
+
+#toggle-hamburger-brand-menu {
+  margin: 0;
+
+  .d-icon {
+    font-size: 1.143em;
+    vertical-align: middle;
+  }
+}
+
+.profiler-results {
+  display: none;
+}
+
 // applies when show_bar_on_mobile is checked
 .above-site-header-outlet .b-header {
-  font-size: var(--font-down-1);
+  width: 100%;
+  background-color: var(--tertiary);
+  height: 48px;
+  margin-bottom: 0;
 
   .title {
-    margin-right: 0.75em;
-  }
-}
-
-// applies when show_bar_on_mobile is unchecked
-.d-header .brand-header-toggle {
-  list-style: none;
-  margin: 0 0.65em 0 0;
-  button {
-    padding: 0.5em;
-  }
-  .rtl & {
-    margin: 0 0 0 0.65em;
-  }
-}
-
-.brand-header-widgetized {
-  .nav {
-    border-top: 1px solid var(--primary-low);
-    border-bottom: 1px solid var(--primary-low);
-    padding: 3px 0;
-    display: grid;
-    grid-template-columns: 50% 50%;
-
+    float: left;
+    margin-right: 24px;
     a {
-      box-sizing: border-box;
-      display: inline-flex;
-      padding: 0.25em 0.6em;
-      width: 100%;
+      color: var(--secondary);
+    }
+    &:visited {
+      color: var(--secondary);
+    }
+    .rtl & {
+      float: right;
+      margin-left: 24px;
+      margin-right: 0;
     }
   }
-
   .title {
-    padding: 0.5em 0.5em 0.75em 0.5em;
-  }
-
-  .panel {
-    margin-top: 1em;
-  }
-
-  .icons {
-    display: flex;
-    a {
-      padding: 0.33em 0.6em;
-      .d-icon {
-        color: var(--primary-medium);
-      }
-    }
+    padding: 0px;
   }
 }

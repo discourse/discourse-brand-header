@@ -1,0 +1,135 @@
+<script type="text/discourse-plugin" version="0.8">
+
+  const { h } = require('virtual-dom');
+  const { applyDecorators } = require('discourse/widgets/widget');
+
+  const flatten = array => [].concat.apply([], array);
+
+  api.createWidget('nav-links', {
+    tagName: 'nav.links',
+
+    html(attrs) {
+      const links = [].concat(attrs.contents());
+
+      return [h('ul.nav.nav-pills', links.map(l => h('li', {}, l)))];
+    }
+  });
+
+  api.createWidget('nav-icons', {
+    tagName: 'ul.icons.clearfix',
+
+    html(attrs) {
+      const links = [].concat(attrs.contents());
+
+      return links.map(l => h('li', {}, l));
+    }
+  });
+
+  api.createWidget('brand-header-right', {
+    tagName: 'div.panel.clearfix',
+
+    html(attrs) {
+      return attrs.contents();
+    },
+  });
+
+  api.createWidget('brand-header', {
+    tagName: 'header.b-header.clearfix',
+    buildKey: () => `header`,
+
+    generalLinks() {
+      const links = settings.links;
+
+      if (links) {
+        return links.split("|").map(l => {
+          const values = l.split(",");
+          return this.attach('link', {
+              rawLabel: values[0].trim(),
+              href: values[1].trim(),
+              omitSpan: true,
+              attributes: {
+                target: (values[2] || '').trim()
+              }
+          });
+        });
+      } else {
+        return [];
+      }
+    },
+
+    iconLinks() {
+      const icons = settings.icons;
+
+      if (icons) {
+        return icons.split("|").map(l => {
+          const values = l.split(",");
+          return this.attach('link', {
+              icon: values[0].trim(),
+              href: values[1].trim(),
+              omitSpan: true,
+              attributes: {
+                target: (values[2] || '').trim()
+              }
+          });
+        });
+      } else {
+        return [];
+      }
+    },
+
+    html(attrs, state) {
+      const { siteSettings } = this;
+      const mobileView = this.site.mobileView;
+
+      const contents = [];
+
+      contents.push(this.attach('brand-logo'));
+
+      const panelContents = [];
+
+      contents.push(this.attach('nav-links', { contents: () => this.generalLinks() }));
+      panelContents.push(this.attach('nav-icons', { contents: () => this.iconLinks() }));
+
+      contents.push(this.attach('brand-header-right', { contents: () => panelContents }));
+
+      return h('div.wrap', h('div.contents.clearfix', contents));
+    }
+
+  });
+
+  const { wantsNewWindow } = require('discourse/lib/intercept-click');
+  const DiscourseURL = require('discourse/lib/url').default;
+
+  api.createWidget('brand-logo', {
+    tagName: 'div.title',
+
+    logo() {
+      const mobileView = this.site.mobileView;
+
+      const mobileLogoUrl = settings.mobile_logo_url || "";
+      const showMobileLogo = mobileView && (mobileLogoUrl.length > 0);
+
+      const logoUrl = settings.logo_url || "";
+      const title = settings.brand_name;
+
+      if (showMobileLogo) {
+        return h('img#brand-logo.logo-big', { key: 'logo-mobile', attributes: { src: mobileLogoUrl, alt: title } });
+      } else if (logoUrl.length) {
+        return h('img#brand-logo.logo-big', { key: 'logo-big', attributes: { src: logoUrl, alt: title } });
+      } else {
+        return h('h2#brand-text-logo.text-logo', { key: 'logo-text' }, title);
+      }
+    },
+
+    html() {
+      return h('a', { attributes: { href: settings.website_url } }, this.logo());
+    },
+
+    click(e) {
+      if (wantsNewWindow(e)) { return false; }
+      e.preventDefault();
+      DiscourseURL.routeToTag(e.target.closest('a'));
+      return false;
+    }
+  });
+</script>

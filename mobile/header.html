@@ -3,7 +3,8 @@
   const { later } = require('@ember/runloop');
 
   api.createWidget('brand-header-icon', {
-    tagName: 'ul.icons.brand-header-toggle',
+    tagName: 'ul.icons.clearfix',
+
     buildAttributes() {
       return { role: 'navigation' };
     },
@@ -24,8 +25,19 @@
   api.createWidget('hamburger-brand-menu', {
     tagName: 'div.hamburger-panel',
 
+    panelContents(generalLinks, iconLinks) {
+      const results = [];
+
+      results.push(this.attach('brand-logo'));
+      results.push(h('hr'));
+      results.push(this.attach('menu-links', { contents: () => generalLinks }));
+      results.push(this.attach('nav-icons', { contents: () => iconLinks }));
+
+      return results;
+    },
+
     html(attrs) {
-      return this.attach('menu-panel', { contents: () => this.attach('brand-header-widgetized') });
+      return this.attach('menu-panel', { contents: () => this.panelContents(attrs.generalLinks, attrs.iconLinks) });
     },
 
     clickOutside(e) {
@@ -41,9 +53,7 @@
   });
 
   if (!settings.show_bar_on_mobile) {
-    api.createWidget('brand-header-container', {
-      buildKey: () => `brand-header-container`,
-
+    api.reopenWidget('brand-header', {
       defaultState() {
         let states =  {
           brandMenuVisible: false
@@ -69,7 +79,7 @@
         panelContents.push(this.attach('brand-header-icon', { brandMenuVisible: state.brandMenuVisible }));
 
         if (state.brandMenuVisible) {
-          panelContents.push(this.attach('hamburger-brand-menu'));
+          panelContents.push(this.attach('hamburger-brand-menu', { generalLinks: this.generalLinks(), iconLinks: this.iconLinks() }));
         }
 
         return panelContents;
@@ -77,7 +87,7 @@
     });
 
     api.decorateWidget("home-logo:before", helper => {
-      return [helper.widget.attach('brand-header-container')];
+      return [helper.widget.attach('brand-header')];
     });
   }
 </script>

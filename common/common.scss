@@ -1,99 +1,80 @@
-.b-header,
-.brand-header-widgetized {
+.b-header {
+  .contents {
+    margin: 8px 0;
+  }
+
   #brand-logo {
     max-height: 32px;
   }
-  h2 {
+
+  #brand-text-logo {
+    line-height: 32px;
     margin: 0;
   }
-}
 
-.above-site-header-outlet {
-  .b-header {
-    width: 100%;
-    background-color: var(--tertiary);
-    margin-bottom: 0;
+  nav.links {
+    float: left;
+    .rtl & {
+      float: right;
+    }
+  }
 
-    .title {
+  .nav-pills {
+    margin: 0;
+    > li > a {
+      color: var(--secondary);
+      line-height: 22px;
+      &:hover {
+        color: var(--quaternary);
+        background-color: var(--quaternary-low);
+      }
+      &.active > a,
+      > a.active {
+        color: var(--secondary);
+        background-color: var(--quaternary);
+      }
+    }
+  }
+
+  .panel {
+    float: right;
+    position: relative;
+    .rtl & {
       float: left;
-      margin-right: 24px;
-      .rtl & {
-        margin-left: 24px;
-        margin-right: 0;
-      }
-
-      a {
-        color: var(--secondary);
-        &:visited {
-          color: var(--secondary);
-        }
-      }
     }
+  }
 
-    .wrap {
-      box-sizing: border-box;
-    }
-
-    .contents {
-      display: flex;
-      align-items: center;
-      box-sizing: border-box;
-      padding: 8px 0;
-    }
-
-    #brand-text-logo {
-      margin: 0;
-    }
-
-    nav.links {
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    .nav-pills {
-      margin: 0;
-
-      > li > a {
-        min-width: 0;
-        color: var(--secondary);
-        @include ellipsis;
-        &:hover {
-          color: var(--quaternary);
-          background-color: var(--quaternary-low);
-        }
-        &.active > a,
-        > a.active {
-          color: var(--secondary);
-          background-color: var(--quaternary);
-        }
-      }
-    }
-
-    .panel {
-      margin: 0 0 0 auto;
-      .rtl & {
-        margin: 0 auto 0 0;
-      }
-    }
-
-    ul.icons {
-      text-align: center;
-      margin: 0 0 0 5px;
+  ul.icons {
+    text-align: center;
+    margin: 0 0 0 5px;
+    > li {
+      float: left;
       list-style: none;
-
-      a {
-        width: 28px;
-        height: 28px;
-        font-size: var(--font-up-1);
-        margin: 2px;
+    }
+    a {
+      width: 28px;
+      height: 28px;
+      font-size: 16px;
+      line-height: 28px;
+      display: inline-block;
+      margin: 2px;
+    }
+    .rtl & {
+      margin: 0 5px 0 0;
+      > li {
+        float: right;
       }
     }
+  }
 
-    .panel > ul.icons {
-      a,
-      .d-icon {
-        color: var(--secondary);
-      }
+  .panel > ul.icons {
+    float: right;
+    a,
+    .d-icon {
+      color: var(--secondary);
+    }
+    .rtl & {
+      float: left;
     }
   }
 }
