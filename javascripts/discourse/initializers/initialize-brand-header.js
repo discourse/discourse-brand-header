@@ -14,7 +14,7 @@ export default {
     );
 
     withPluginApi("1.14.0", (api) => {
-      api.renderInOutlet("above-site-header", BrandHeaderContainer);
+      api.renderInOutlet(settings.plugin_outlet, BrandHeaderContainer);
     });
   },
 };
