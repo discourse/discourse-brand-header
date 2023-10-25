@@ -24,3 +24,9 @@ custom_font_awesome_icons:
 show_bar_on_mobile:
   type: bool
   default: false
+plugin_outlet:
+  default: "above-site-header"
+  type: enum
+  choices:
+    - "above-site-header"
+    - "below-site-header"
