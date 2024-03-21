@@ -7,15 +7,6 @@
   }
 }
 
-.home-logo-wrapper-outlet {
-  display: flex;
-  .brand-header-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 // applies when show_bar_on_mobile is unchecked
 .d-header .brand-header-toggle {
   list-style: none;
@@ -25,6 +16,15 @@
   }
   .rtl & {
     margin: 0 0 0 0.65em;
+  }
+}
+
+.home-logo-wrapper-outlet {
+  display: flex;
+  .brand-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
