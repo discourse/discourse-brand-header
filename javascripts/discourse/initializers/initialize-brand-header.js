@@ -8,8 +8,8 @@ export default {
 
   initialize() {
     registerWidgetShim(
-      "brand-header-widgetized",
-      "div.brand-header-widgetized",
+      "brand-header-contents",
+      "div.brand-header-contents",
       hbs`<BrandHeaderContents />`
     );
 
