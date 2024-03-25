@@ -19,7 +19,23 @@
   }
 }
 
-.brand-header-widgetized {
+.home-logo-wrapper-outlet {
+  display: flex;
+  .brand-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.brand-header-contents {
+  padding: 0.5em;
+  width: 320px;
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
   .nav {
     border-top: 1px solid var(--primary-low);
     border-bottom: 1px solid var(--primary-low);
@@ -45,6 +61,7 @@
 
   .icons {
     display: flex;
+    height: 26px;
     a {
       padding: 0.33em 0.6em;
       .d-icon {
