@@ -1,10 +1,8 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
-import { not, and } from "truth-helpers";
-import MountWidget from "discourse/components/mount-widget";
+import { and, not } from "truth-helpers";
 import DMenu from "float-kit/components/d-menu";
 import BrandHeaderContents from "../../components/brand-header-contents";
-import dIcon from "discourse-common/helpers/d-icon";
 
 export default class MobileBrandHeader extends Component {
   @service site;
