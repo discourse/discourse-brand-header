@@ -1,6 +1,6 @@
+import { hbs } from "ember-cli-htmlbars";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { registerWidgetShim } from "discourse/widgets/render-glimmer";
-import { hbs } from "ember-cli-htmlbars";
 import BrandHeaderContainer from "../components/brand-header-container";
 
 export default {
