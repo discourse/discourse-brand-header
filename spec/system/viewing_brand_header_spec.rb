@@ -27,13 +27,20 @@ RSpec.describe "Viewing the brand header", type: :system do
 
     theme.update_setting(
       :links,
-      "First Link,http://some.url.com/first|Second Link,http://some.url.com/second,_blank",
+      [
+        { text: "First Link", url: "http://some.url.com/first", target: "_blank" },
+        { text: "Second Link", url: "http://some.url.com/second", target: "_self" },
+      ],
     )
 
     theme.update_setting(
       :icons,
-      "wrench,http://some.url.com/some-wrench-link|pencil,http://some.url.com/some-pencil-link,_blank",
+      [
+        { icon_name: "wrench", url: "http://some.url.com/some-wrench-link", target: "_self" },
+        { icon_name: "pencil", url: "http://some.url.com/some-pencil-link", target: "_blank" },
+      ],
     )
+
     theme.save!
 
     visit("/")
@@ -44,10 +51,12 @@ RSpec.describe "Viewing the brand header", type: :system do
       'img#brand-logo[title="some name"][src="http://some.url.com/logo.png"]',
     )
 
-    expect(page).to have_link("First Link", href: "http://some.url.com/first")
-    expect(page).to have_link("Second Link", href: "http://some.url.com/second", target: "_blank")
+    expect(page).to have_link("First Link", href: "http://some.url.com/first", target: "_blank")
+    expect(page).to have_link("Second Link", href: "http://some.url.com/second", target: "_self")
 
-    expect(page).to have_selector('a[href="http://some.url.com/some-wrench-link"] .d-icon-wrench')
+    expect(page).to have_selector(
+      'a[href="http://some.url.com/some-wrench-link"][target="_self"] .d-icon-wrench',
+    )
 
     expect(page).to have_selector(
       'a[href="http://some.url.com/some-pencil-link"][target="_blank"] .d-icon-pencil',

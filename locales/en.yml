@@ -1,0 +1,29 @@
+en:
+  theme_metadata:
+    settings:
+      links:
+        description: Text links to be displayed in the header
+        schema:
+          properties:
+            text:
+              label: Text
+              description: The text to display for the link
+            url:
+              label: URL
+              description: The URL to link to
+            target:
+              label: Target
+              description: The target attribute for the link
+      icons:
+        description: Icon links to be displayed in the header
+        schema:
+          properties:
+            icon_name:
+              label: Icon
+              description: The name of the FontAwesome 5 icon to display for the link
+            url:
+              label: URL
+              description: The URL to link to
+            target:
+              label: Target
+              description: The target attribute for the link
