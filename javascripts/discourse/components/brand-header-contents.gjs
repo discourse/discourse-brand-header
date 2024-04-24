@@ -23,11 +23,11 @@ export default class BrandHeaderContents extends Component {
   }
 
   get hasIcons() {
-    return settings.icons.length > 0;
+    return settings.icons && settings.icons.length > 0;
   }
 
   get hasLinks() {
-    return settings.links.length > 0;
+    return settings.links && settings.links.length > 0;
   }
 
   <template>
