@@ -17,14 +17,14 @@ links:
         type: string
         required: true
         validations:
-          min: 1
-          max: 100
+          min_length: 1
+          max_length: 100
       url:
         type: string
         required: true
         validations:
-          min: 1
-          max: 2048
+          min_length: 1
+          max_length: 2048
           url: true
       target:
         type: enum
@@ -45,14 +45,14 @@ icons:
         type: string
         required: true
         validations:
-          min: 1
-          max: 100
+          min_length: 1
+          max_length: 100
       url:
         type: string
         required: true
         validations:
-          min: 1
-          max: 2048
+          min_length: 1
+          max_length: 2048
           url: true
       target:
         type: enum
