@@ -4,6 +4,27 @@ import migrate from "../../../../migrations/settings/0001-migrate-links-setting"
 module(
   "Unit | Migrations | Settings | 0001-migrate-links-setting",
   function () {
+    test("migrate when old setting is of an invalid format", function (assert) {
+      const settings = new Map(
+        Object.entries({
+          links: "some||another",
+        })
+      );
+
+      const result = migrate(settings);
+
+      const expectedResult = new Map(
+        Object.entries({
+          links: [],
+        })
+      );
+
+      assert.deepEqual(
+        Object.fromEntries(result.entries()),
+        Object.fromEntries(expectedResult.entries())
+      );
+    });
+
     test("migrate", function (assert) {
       const settings = new Map(
         Object.entries({
@@ -18,17 +39,17 @@ module(
         Object.entries({
           links: [
             {
-              name: "some",
+              text: "some",
               url: "links",
               target: "_blank",
             },
             {
-              name: "another",
+              text: "another",
               url: "link",
               target: "_blank",
             },
             {
-              name: "link2",
+              text: "link2",
               url: "/some/path",
               target: "_blank",
             },
