@@ -27,3 +27,4 @@ en:
             target:
               label: Target
               description: The target attribute for the link
+      show_bar_on_mobile: When enabled, the desktop version of the header bar will be displayed on mobile devices
