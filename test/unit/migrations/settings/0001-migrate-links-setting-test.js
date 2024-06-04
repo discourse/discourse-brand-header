@@ -2,7 +2,7 @@ import { module, test } from "qunit";
 import migrate from "../../../../migrations/settings/0001-migrate-links-setting";
 
 module(
-  "Unit | Migrations | Settings | 0001-migrate-links-setting",
+  "Brand Header | Unit | Migrations | Settings | 0001-migrate-links-setting",
   function () {
     test("migrate when old setting is of an invalid format", function (assert) {
       const settings = new Map(
