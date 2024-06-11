@@ -1,0 +1,35 @@
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
+#
+# To work with us on translations, join this project:
+# https://translate.discourse.org/
+
+de:
+  theme_metadata:
+    settings:
+      links:
+        description: Textlinks, die in der Kopfzeile angezeigt werden sollen
+        schema:
+          properties:
+            text:
+              label: Text
+              description: Der Text, der für den Link angezeigt werden soll
+            url:
+              label: URL
+              description: Die URL, auf die verlinkt werden soll
+            target:
+              label: Target
+              description: Das Targetattribut für den Link
+      icons:
+        description: Symbol-Links, die in der Kopfzeile angezeigt werden sollen
+        schema:
+          properties:
+            icon_name:
+              label: Symbol
+              description: Der Name des FontAwesome 5 Symbols, das für den Link angezeigt werden soll
+            url:
+              label: URL
+              description: Die URL, auf die verlinkt werden soll
+            target:
+              label: Target
+              description: Das Targetattribut für den Link
