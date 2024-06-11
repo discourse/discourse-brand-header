@@ -1,0 +1,5 @@
+# Configuration file for discourse-translator-bot
+
+files:
+- source_path: locales/en.yml
+  destination_path: translations.yml
