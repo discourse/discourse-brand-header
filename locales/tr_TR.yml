@@ -5,3 +5,31 @@
 # https://translate.discourse.org/
 
 tr_TR:
+  theme_metadata:
+    settings:
+      links:
+        description: Üstbilgide görüntülenecek metin bağlantıları
+        schema:
+          properties:
+            text:
+              label: Metin
+              description: Bağlantı için görüntülenecek metin
+            url:
+              label: URL
+              description: Bağlantı verilecek URL
+            target:
+              label: Hedef
+              description: Bağlantı için hedef niteliği
+      icons:
+        description: Üstbilgide görüntülenecek simge bağlantıları
+        schema:
+          properties:
+            icon_name:
+              label: Simge
+              description: Bağlantı için görüntülenecek FontAwesome 5 simgesinin adı
+            url:
+              label: URL
+              description: Bağlantı verilecek URL
+            target:
+              label: Hedef
+              description: Bağlantı için hedef niteliği
