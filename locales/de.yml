@@ -33,3 +33,4 @@ de:
             target:
               label: Target
               description: Das Targetattribut für den Link
+      show_bar_on_mobile: Wenn diese Option aktiviert ist, wird die Desktop-Version der Kopfzeile auf Mobilgeräten angezeigt

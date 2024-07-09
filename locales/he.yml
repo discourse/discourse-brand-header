@@ -5,3 +5,6 @@
 # https://translate.discourse.org/
 
 he:
+  theme_metadata:
+    settings:
+      show_bar_on_mobile: כשהאפשרות פעילה, גרסת שולחן העבודה של פס הכותרת תוצג במכשירים ניידים
