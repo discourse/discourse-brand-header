@@ -33,4 +33,5 @@ de:
             target:
               label: Target
               description: Das Targetattribut für den Link
+      custom_font_awesome_icons: Liste der FontAwesome 5-Symbole, die in dieser Theme-Komponente verwendet werden
       show_bar_on_mobile: Wenn diese Option aktiviert ist, wird die Desktop-Version der Kopfzeile auf Mobilgeräten angezeigt
