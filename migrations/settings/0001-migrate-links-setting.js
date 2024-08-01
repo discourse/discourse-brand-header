@@ -1,7 +1,7 @@
 export default function migrate(settings) {
   const oldSetting = settings.get("links");
 
-  if (oldSetting) {
+  if (typeof oldSetting === "string") {
     const newLinks = [];
 
     oldSetting.split("|").forEach((link) => {
