@@ -1,7 +1,7 @@
 export default function migrate(settings) {
   const oldSetting = settings.get("icons");
 
-  if (oldSetting) {
+  if (typeof oldSetting === "string") {
     const newIcons = [];
 
     oldSetting.split("|").map((link) => {
