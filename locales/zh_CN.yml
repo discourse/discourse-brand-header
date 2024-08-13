@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 zh_CN:
+  theme_metadata:
+    settings:
+      links:
+        description: 在页眉中显示的文本链接
+        schema:
+          properties:
+            text:
+              label: 文本
+              description: 为链接显示的文本
+            url:
+              label: URL
+              description: 链接到的 URL
+            target:
+              label: 目标
+              description: 链接的目标属性
+      icons:
+        description: 在页眉中显示的图标链接
+        schema:
+          properties:
+            icon_name:
+              label: 图标
+              description: 为链接显示的 FontAwesome 5 图标的名称
+            url:
+              label: URL
+              description: 链接到的 URL
+            target:
+              label: 目标
+              description: 链接的目标属性
+      custom_font_awesome_icons: 此主题组件中使用的 FontAwesome 5 图标列表
+      show_bar_on_mobile: 启用后，桌面版页眉栏将显示在移动设备上

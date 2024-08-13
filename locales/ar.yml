@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 ar:
+  theme_metadata:
+    settings:
+      links:
+        description: الروابط النصية التي سيتم عرضها في الرأس
+        schema:
+          properties:
+            text:
+              label: النص
+              description: النص الذي سيتم عرضه للرابط
+            url:
+              label: عنوان URL
+              description: عنوان URL الذي سيؤدي إليه الرابط
+            target:
+              label: الهدف
+              description: سمة الهدف للرابط
+      icons:
+        description: روابط الأيقونة التي سيتم عرضها في الرأس
+        schema:
+          properties:
+            icon_name:
+              label: الأيقونة
+              description: اسم أيقونة FontAwesome5 التي سيتم عرضها للرابط
+            url:
+              label: عنوان URL
+              description: عنوان URL الذي سيؤدي إليه الرابط
+            target:
+              label: الهدف
+              description: سمة الهدف للرابط
+      custom_font_awesome_icons: قائمة أيقونات FontAwesome5 المُستخدَمة في مكوِّن السمة هذا
+      show_bar_on_mobile: عند التفعيل، سيتم عرض إصدار سطح المكتب من شريط الرأس على أجهزة الجوَّال

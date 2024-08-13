@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 it:
+  theme_metadata:
+    settings:
+      links:
+        description: Link di testo da visualizzare nell'intestazione
+        schema:
+          properties:
+            text:
+              label: Testo
+              description: Il testo da visualizzare per il link
+            url:
+              label: URL
+              description: L'URL a cui collegarsi
+            target:
+              label: Destinazione
+              description: L'attributo di destinazione per il link
+      icons:
+        description: Icona di testo da visualizzare nell'intestazione
+        schema:
+          properties:
+            icon_name:
+              label: Icona
+              description: Il nome dell'icona FontAwesome 5 da visualizzare per il link
+            url:
+              label: URL
+              description: L'URL a cui collegarsi
+            target:
+              label: Destinazione
+              description: L'attributo di destinazione per il link
+      custom_font_awesome_icons: Elenco delle icone FontAwesome 5 utilizzate in questo componente del tema
+      show_bar_on_mobile: Se l'opzione è abilitata, la versione desktop della barra dell'intestazione verrà visualizzata sui dispositivi mobili
