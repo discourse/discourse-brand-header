@@ -8,7 +8,7 @@ tr_TR:
   theme_metadata:
     settings:
       links:
-        description: Üstbilgide görüntülenecek metin bağlantıları
+        description: Üst bilgide görüntülenecek metin bağlantıları
         schema:
           properties:
             text:
@@ -21,7 +21,7 @@ tr_TR:
               label: Hedef
               description: Bağlantı için hedef niteliği
       icons:
-        description: Üstbilgide görüntülenecek simge bağlantıları
+        description: Üst bilgide görüntülenecek simge bağlantıları
         schema:
           properties:
             icon_name:
@@ -33,3 +33,5 @@ tr_TR:
             target:
               label: Hedef
               description: Bağlantı için hedef niteliği
+      custom_font_awesome_icons: Bu tema bileşeninde kullanılan FontAwesome 5 simgelerinin listesi
+      show_bar_on_mobile: Etkinleştirildiğinde, başlık çubuğunun masaüstü sürümü mobil cihazlarda görüntülenir

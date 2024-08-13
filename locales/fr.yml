@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 fr:
+  theme_metadata:
+    settings:
+      links:
+        description: Liens texte à afficher dans l'en-tête
+        schema:
+          properties:
+            text:
+              label: Texte
+              description: Le texte à afficher pour le lien
+            url:
+              label: URL
+              description: L'URL vers laquelle créer un lien
+            target:
+              label: Cible
+              description: L'attribut cible du lien
+      icons:
+        description: Liens d'icônes à afficher dans l'en-tête
+        schema:
+          properties:
+            icon_name:
+              label: Icône
+              description: Le nom de l'icône FontAwesome 5 à afficher pour le lien
+            url:
+              label: URL
+              description: L'URL vers laquelle créer un lien
+            target:
+              label: Cible
+              description: L'attribut cible du lien
+      custom_font_awesome_icons: Liste des icônes FontAwesome 5 utilisées dans ce composant du thème
+      show_bar_on_mobile: Lorsque cette option est activée, la version d'ordinateur de bureau de la barre d'en-tête sera affichée sur les appareils mobiles

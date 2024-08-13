@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 fi:
+  theme_metadata:
+    settings:
+      links:
+        description: Ylätunnisteessa näkyvät tekstilinkit
+        schema:
+          properties:
+            text:
+              label: Teksti
+              description: Linkin näytettävä teksti
+            url:
+              label: URL
+              description: URL, johon linkki osoittaa
+            target:
+              label: Kohde
+              description: Linkin kohdemäärite
+      icons:
+        description: Ylätunnisteessa näkyvät kuvakelinkit
+        schema:
+          properties:
+            icon_name:
+              label: Kuvake
+              description: Linkissä näytettävän FontAwesome 5 -kuvakkeen nimi
+            url:
+              label: URL
+              description: URL, johon linkki osoittaa
+            target:
+              label: Kohde
+              description: Linkin kohdemäärite
+      custom_font_awesome_icons: Luettelo tässä teeman komponentissa käytettävistä FontAwesome 5 -kuvakkeista
+      show_bar_on_mobile: Kun tämä on käytössä, ylätunnistepalkin työpöytäversio näytetään mobiililaitteissa

@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 pt:
+  theme_metadata:
+    settings:
+      links:
+        description: Links do texto exibidos no cabeçalho
+        schema:
+          properties:
+            text:
+              label: Texto
+              description: Texto exibido para o link
+            url:
+              label: URL
+              description: A URL para vincular
+            target:
+              label: Destino
+              description: O atributo de destino para o link
+      icons:
+        description: Links de ícone exibidos no cabeçalho
+        schema:
+          properties:
+            icon_name:
+              label: Ícone
+              description: O nome do ícone de FontAwesome 5 exibido para o link
+            url:
+              label: URL
+              description: A URL para vincular
+            target:
+              label: Destino
+              description: O atributo de destino para o link
+      custom_font_awesome_icons: A lista de ícones de FontAwesome 5 usados neste componente temático
+      show_bar_on_mobile: Quando ativado, a versão da barra de cabeçalho para o desktop será exibida nos dispositivos móveis

@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 nl:
+  theme_metadata:
+    settings:
+      links:
+        description: Tekstlinks die in de koptekst moeten worden weergegeven
+        schema:
+          properties:
+            text:
+              label: Tekst
+              description: De tekst om weer te geven voor de link
+            url:
+              label: URL
+              description: De URL om naar te linken
+            target:
+              label: Doel
+              description: Het 'target'-attribuut voor de link
+      icons:
+        description: Pictogramlinks die in de koptekst moeten worden weergegeven
+        schema:
+          properties:
+            icon_name:
+              label: Pictogram
+              description: De naam van het Font Awesome 5-pictogram om weer te geven voor de link
+            url:
+              label: URL
+              description: De URL om naar te linken
+            target:
+              label: Doel
+              description: Het 'target'-attribuut voor de link
+      custom_font_awesome_icons: Lijst van Font Awesome 5-pictogrammen die in deze themacomponent worden gebruikt
+      show_bar_on_mobile: Als dit is ingeschakeld, wordt de desktopversie van de kopbalk weergegeven op mobiele apparaten

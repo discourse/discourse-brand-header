@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 ru:
+  theme_metadata:
+    settings:
+      links:
+        description: Текстовые ссылки, которые будут отображаться в заголовке
+        schema:
+          properties:
+            text:
+              label: Текст
+              description: Текст, отображаемый для ссылки
+            url:
+              label: URL
+              description: URL-адрес для ссылки
+            target:
+              label: Target
+              description: Атрибут target для ссылки
+      icons:
+        description: Значки ссылок, которые будут отображаться в заголовке
+        schema:
+          properties:
+            icon_name:
+              label: Значок
+              description: Имя значка FontAwesome 5, которое будет отображаться для ссылки
+            url:
+              label: URL
+              description: URL-адрес для ссылки
+            target:
+              label: Target
+              description: Атрибут target для ссылки
+      custom_font_awesome_icons: Список значков FontAwesome 5, используемых в этом компоненте темы
+      show_bar_on_mobile: Если включить, на мобильных устройствах будет отображаться версия заголовка для настольного компьютера.

@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 ja:
+  theme_metadata:
+    settings:
+      links:
+        description: ヘッダーに表示されるテキストリンク
+        schema:
+          properties:
+            text:
+              label: テキスト
+              description: リンクに表示するテキスト
+            url:
+              label: URL
+              description: リンク先の URL
+            target:
+              label: ターゲット
+              description: リンクのターゲット属性
+      icons:
+        description: ヘッダーに表示されるアイコンリンク
+        schema:
+          properties:
+            icon_name:
+              label: アイコン
+              description: リンクに表示する FontAwesome 5 アイコンの名前
+            url:
+              label: URL
+              description: リンク先の URL
+            target:
+              label: ターゲット
+              description: リンクのターゲット属性
+      custom_font_awesome_icons: このテーマコンポーネントで使用される FontAwesome 5 アイコンのリスト
+      show_bar_on_mobile: 有効にすると、ヘッダーバーのデスクトップバージョンがモバイルデバイスに表示されます。
