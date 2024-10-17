@@ -1,5 +1,5 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import dIcon from "discourse-common/helpers/d-icon";
 
 export default class BrandHeaderContents extends Component {
