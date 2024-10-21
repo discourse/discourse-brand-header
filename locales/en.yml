@@ -20,12 +20,12 @@ en:
           properties:
             icon_name:
               label: Icon
-              description: The name of the FontAwesome 5 icon to display for the link
+              description: The name of the FontAwesome 6 icon to display for the link
             url:
               label: URL
               description: The URL to link to
             target:
               label: Target
               description: The target attribute for the link
-      custom_font_awesome_icons: List of FontAwesome 5 icons used in this theme component
+      custom_font_awesome_icons: List of FontAwesome 6 icons used in this theme component
       show_bar_on_mobile: When enabled, the desktop version of the header bar will be displayed on mobile devices
