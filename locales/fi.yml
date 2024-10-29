@@ -26,12 +26,12 @@ fi:
           properties:
             icon_name:
               label: Kuvake
-              description: Linkissä näytettävän FontAwesome 5 -kuvakkeen nimi
+              description: Linkissä näytettävän FontAwesome 6 -kuvakkeen nimi
             url:
               label: URL
               description: URL, johon linkki osoittaa
             target:
               label: Kohde
               description: Linkin kohdemäärite
-      custom_font_awesome_icons: Luettelo tässä teeman komponentissa käytettävistä FontAwesome 5 -kuvakkeista
+      custom_font_awesome_icons: Luettelo tässä teeman komponentissa käytettävistä FontAwesome 6 -kuvakkeista
       show_bar_on_mobile: Kun tämä on käytössä, ylätunnistepalkin työpöytäversio näytetään mobiililaitteissa

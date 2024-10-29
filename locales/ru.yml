@@ -26,12 +26,12 @@ ru:
           properties:
             icon_name:
               label: Значок
-              description: Имя значка FontAwesome 5, которое будет отображаться для ссылки
+              description: Имя значка FontAwesome 6, которое будет отображаться для ссылки
             url:
               label: URL
               description: URL-адрес для ссылки
             target:
               label: Target
               description: Атрибут target для ссылки
-      custom_font_awesome_icons: Список значков FontAwesome 5, используемых в этом компоненте темы
+      custom_font_awesome_icons: Список значков FontAwesome 6, используемых в этом компоненте темы
       show_bar_on_mobile: Если включить, на мобильных устройствах будет отображаться версия заголовка для настольного компьютера.

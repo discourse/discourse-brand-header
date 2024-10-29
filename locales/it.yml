@@ -26,12 +26,12 @@ it:
           properties:
             icon_name:
               label: Icona
-              description: Il nome dell'icona FontAwesome 5 da visualizzare per il link
+              description: Il nome dell'icona FontAwesome 6 da visualizzare per il link
             url:
               label: URL
               description: L'URL a cui collegarsi
             target:
               label: Destinazione
               description: L'attributo di destinazione per il link
-      custom_font_awesome_icons: Elenco delle icone FontAwesome 5 utilizzate in questo componente del tema
+      custom_font_awesome_icons: Elenco delle icone FontAwesome 6 utilizzate in questo componente del tema
       show_bar_on_mobile: Se l'opzione è abilitata, la versione desktop della barra dell'intestazione verrà visualizzata sui dispositivi mobili

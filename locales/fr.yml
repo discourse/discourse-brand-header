@@ -26,12 +26,12 @@ fr:
           properties:
             icon_name:
               label: Icône
-              description: Le nom de l'icône FontAwesome 5 à afficher pour le lien
+              description: Le nom de l'icône FontAwesome 6 à afficher pour le lien
             url:
               label: URL
               description: L'URL vers laquelle créer un lien
             target:
               label: Cible
               description: L'attribut cible du lien
-      custom_font_awesome_icons: Liste des icônes FontAwesome 5 utilisées dans ce composant du thème
+      custom_font_awesome_icons: Liste des icônes FontAwesome 6 utilisées dans ce composant du thème
       show_bar_on_mobile: Lorsque cette option est activée, la version d'ordinateur de bureau de la barre d'en-tête sera affichée sur les appareils mobiles
