@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 ro:
+  theme_metadata:
+    settings:
+      links:
+        description: Legături text care urmează să fie afișate în antet
+        schema:
+          properties:
+            text:
+              label: Text
+              description: Textul care urmează să fie afișat pentru legătură
+            url:
+              label: URL
+              description: URL-ul la care să se facă legătura
+            target:
+              label: Țintă
+              description: Atributul țintă pentru legătură
+      icons:
+        description: Legături cu icon care vor fi afișate în antet
+        schema:
+          properties:
+            icon_name:
+              label: Icon
+              description: Numele iconului FontAwesome 6 care urmează să fie afișat pentru legătură
+            url:
+              label: URL
+              description: URL-ul la care să se facă legătura
+            target:
+              label: Țintă
+              description: Atributul țintă pentru legătură
+      custom_font_awesome_icons: Lista de iconuri FontAwesome 6 utilizate în această componentă pentru temă
+      show_bar_on_mobile: Când este activată, versiunea desktop a barei de antet va fi afișată pe dispozitivele mobile

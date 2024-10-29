@@ -26,12 +26,12 @@ tr_TR:
           properties:
             icon_name:
               label: Simge
-              description: Bağlantı için görüntülenecek FontAwesome 5 simgesinin adı
+              description: Bağlantı için görüntülenecek FontAwesome 6 simgesinin adı
             url:
               label: URL
               description: Bağlantı verilecek URL
             target:
               label: Hedef
               description: Bağlantı için hedef niteliği
-      custom_font_awesome_icons: Bu tema bileşeninde kullanılan FontAwesome 5 simgelerinin listesi
+      custom_font_awesome_icons: Bu tema bileşeninde kullanılan FontAwesome 6 simgelerinin listesi
       show_bar_on_mobile: Etkinleştirildiğinde, başlık çubuğunun masaüstü sürümü mobil cihazlarda görüntülenir

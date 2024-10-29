@@ -26,12 +26,12 @@ he:
           properties:
             icon_name:
               label: סמל
-              description: שם הסמל ב־FontAwesome 5 לייצוג הקישור
+              description: שם הסמל ב־FontAwesome 6 לייצוג הקישור
             url:
               label: כתובת
               description: כתובת הקישור
             target:
               label: יעד
               description: מאפיין היעד/target של הקישור
-      custom_font_awesome_icons: רשימה של סמלי FontAwesome 5 שנעשה בהם שימוש ברכיב ערכת העיצוב הזה
+      custom_font_awesome_icons: רשימה של סמלי FontAwesome 6 שנעשה בהם שימוש ברכיב ערכת העיצוב הזה
       show_bar_on_mobile: כשהאפשרות פעילה, גרסת שולחן העבודה של פס הכותרת תוצג במכשירים ניידים

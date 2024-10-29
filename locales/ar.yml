@@ -26,12 +26,12 @@ ar:
           properties:
             icon_name:
               label: الأيقونة
-              description: اسم أيقونة FontAwesome5 التي سيتم عرضها للرابط
+              description: اسم أيقونة FontAwesome6 التي سيتم عرضها للرابط
             url:
               label: عنوان URL
               description: عنوان URL الذي سيؤدي إليه الرابط
             target:
               label: الهدف
               description: سمة الهدف للرابط
-      custom_font_awesome_icons: قائمة أيقونات FontAwesome5 المُستخدَمة في مكوِّن السمة هذا
+      custom_font_awesome_icons: قائمة أيقونات FontAwesome6 المُستخدَمة في مكوِّن السمة هذا
       show_bar_on_mobile: عند التفعيل، سيتم عرض إصدار سطح المكتب من شريط الرأس على أجهزة الجوَّال

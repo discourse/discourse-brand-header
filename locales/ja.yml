@@ -26,12 +26,12 @@ ja:
           properties:
             icon_name:
               label: アイコン
-              description: リンクに表示する FontAwesome 5 アイコンの名前
+              description: リンクに表示する FontAwesome 6 アイコンの名前
             url:
               label: URL
               description: リンク先の URL
             target:
               label: ターゲット
               description: リンクのターゲット属性
-      custom_font_awesome_icons: このテーマコンポーネントで使用される FontAwesome 5 アイコンのリスト
+      custom_font_awesome_icons: このテーマコンポーネントで使用される FontAwesome 6 アイコンのリスト
       show_bar_on_mobile: 有効にすると、ヘッダーバーのデスクトップバージョンがモバイルデバイスに表示されます。
