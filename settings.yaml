@@ -4,6 +4,10 @@ website_url:
   default: ""
 logo_url:
   default: ""
+logo_dark_url:
+  default: ""
+logo_light_url:
+  default: ""
 mobile_logo_url:
   default: ""
 

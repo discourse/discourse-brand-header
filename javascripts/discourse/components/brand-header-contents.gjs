@@ -14,10 +14,14 @@ export default class BrandHeaderContents extends Component {
     const mobileLogoUrl = settings.mobile_logo_url || "";
     const showMobileLogo = mobileView && mobileLogoUrl.length > 0;
     const logoUrl = settings.logo_url || "";
+    const logoDarkUrl = settings.logo_dark_url || "";
+    const logoLightUrl = settings.logo_light_url || "";
     const title = settings.brand_name;
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const selectedLogoUrl = isDarkMode ? logoDarkUrl : logoLightUrl;
 
     return {
-      url: showMobileLogo ? mobileLogoUrl : logoUrl,
+      url: showMobileLogo ? mobileLogoUrl : selectedLogoUrl || logoUrl,  // Fallback to logoUrl if no light/dark URL set
       title,
     };
   }
