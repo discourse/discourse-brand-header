@@ -1,5 +1,6 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
+import LightDarkImg from "discourse/components/light-dark-img";
 import dIcon from "discourse-common/helpers/d-icon";
 
 export default class BrandHeaderContents extends Component {
@@ -15,13 +16,12 @@ export default class BrandHeaderContents extends Component {
     const showMobileLogo = mobileView && mobileLogoUrl.length > 0;
     const logoUrl = settings.logo_url || "";
     const logoDarkUrl = settings.logo_dark_url || "";
-    const logoLightUrl = settings.logo_light_url || "";
     const title = settings.brand_name;
-    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const selectedLogoUrl = isDarkMode ? logoDarkUrl : logoLightUrl;
 
     return {
-      url: showMobileLogo ? mobileLogoUrl : selectedLogoUrl || logoUrl,  // Fallback to logoUrl if no light/dark URL set
+      mobileUrl: showMobileLogo ? mobileLogoUrl : null,
+      lightUrl: logoUrl,
+      darkUrl: logoDarkUrl || logoUrl,
       title,
     };
   }
@@ -37,17 +37,21 @@ export default class BrandHeaderContents extends Component {
   <template>
     <div class="title">
       <a href={{settings.website_url}}>
-        {{#if this.brandLogo.url}}
+        {{#if this.brandLogo.mobileUrl}}
           <img
             id="brand-logo"
             class="logo-big"
-            src={{this.brandLogo.url}}
+            src={{this.brandLogo.mobileUrl}}
             title={{this.brandLogo.title}}
           />
         {{else}}
-          <h2 id="#brand-text-logo" class="text-logo">
-            {{settings.brand_name}}
-          </h2>
+          <LightDarkImg
+            id="brand-logo"
+            class="logo-big"
+            @lightImg={{this.brandLogo.lightUrl}}
+            @darkImg={{this.brandLogo.darkUrl}}
+            title={{this.brandLogo.title}}
+          />
         {{/if}}
       </a>
     </div>
