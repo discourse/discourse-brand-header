@@ -20,8 +20,12 @@ export default class BrandHeaderContents extends Component {
 
     return {
       mobileUrl: showMobileLogo ? mobileLogoUrl : null,
-      lightUrl: logoUrl,
-      darkUrl: logoDarkUrl || logoUrl,
+      lightImg: {
+        url: logoUrl,
+      },
+      darkImg: {
+        url: logoDarkUrl,
+      },
       title,
     };
   }
@@ -48,8 +52,8 @@ export default class BrandHeaderContents extends Component {
           <LightDarkImg
             id="brand-logo"
             class="logo-big"
-            @lightImg={{this.brandLogo.lightUrl}}
-            @darkImg={{this.brandLogo.darkUrl}}
+            @lightImg={{this.brandLogo.lightImg}}
+            @darkImg={{this.brandLogo.darkImg}}
             title={{this.brandLogo.title}}
           />
         {{/if}}
