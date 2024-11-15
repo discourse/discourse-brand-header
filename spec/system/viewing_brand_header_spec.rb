@@ -49,6 +49,7 @@ RSpec.describe "Viewing the brand header", type: :system do
 
     expect(page).to have_selector(
       'img#brand-logo[title="some name"][src="http://some.url.com/logo.png"]',
+      visible: :all,
     )
 
     expect(page).to have_link("First Link", href: "http://some.url.com/first", target: "_blank")
