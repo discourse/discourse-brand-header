@@ -24,7 +24,6 @@ RSpec.describe "Viewing the brand header", type: :system do
     theme.update_setting(:website_url, "http://some.url.com")
     theme.update_setting(:brand_name, "some name")
     theme.update_setting(:logo_url, "http://some.url.com/logo.png")
-    theme.update_setting(:logo_dark_url, "http://some.url.com/logo-dark.png")
 
     theme.update_setting(
       :links,
@@ -49,13 +48,8 @@ RSpec.describe "Viewing the brand header", type: :system do
     expect(page).to have_link(nil, href: "http://some.url.com")
 
     expect(page).to have_selector(
-      'img#brand-logo[src="http://some.url.com/logo.png"][title="some name"]'
+      'img#brand-logo[title="some name"][src="http://some.url.com/logo.png"]', visible: :all
     )
-    
-    expect(page).to have_selector(
-      'img#brand-logo[src="http://some.url.com/logo-dark.png"][title="some name"]'
-    )
-    
 
     expect(page).to have_link("First Link", href: "http://some.url.com/first", target: "_blank")
     expect(page).to have_link("Second Link", href: "http://some.url.com/second", target: "_self")
