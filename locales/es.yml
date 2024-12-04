@@ -33,5 +33,5 @@ es:
             target:
               label: Destino
               description: El atributo de destino del enlace.
-      custom_font_awesome_icons: Lista de íconos de FontAwesome 6 utilizados en este componente de tema
+      custom_font_awesome_icons: Lista de iconos de FontAwesome 6 utilizados en este componente del tema
       show_bar_on_mobile: Si está activada, la versión de escritorio de la barra de encabezado se mostrará en los dispositivos móviles
