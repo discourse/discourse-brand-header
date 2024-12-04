@@ -26,7 +26,7 @@ tr_TR:
           properties:
             icon_name:
               label: Simge
-              description: Bağlantı için görüntülenecek FontAwesome 6 simgesinin adı
+              description: Bağlantı için gösterilecek FontAwesome 6 simgesinin adı
             url:
               label: URL
               description: Bağlantı verilecek URL
