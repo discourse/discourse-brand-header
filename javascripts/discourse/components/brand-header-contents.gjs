@@ -7,66 +7,54 @@ export default class BrandHeaderContents extends Component {
   @service site;
 
   get shouldShow() {
-    return !this.site.mobileView || settings.show_bar_on_mobile;
+    return !this.isMobileView || settings.show_bar_on_mobile;
   }
 
-  get brandLogo() {
-    const mobileView = this.site.mobileView;
-    const mobileLogoUrl = settings.mobile_logo_url || "";
-    const showMobileLogo = mobileView && mobileLogoUrl.length > 0;
-    const logoUrl = settings.logo_url || "";
-    const logoDarkUrl = settings.logo_dark_url || "";
-    const title = settings.brand_name;
-
-    return {
-      mobileUrl: showMobileLogo ? mobileLogoUrl : null,
-      lightImg: {
-        url: logoUrl,
-      },
-      darkImg: {
-        url: logoDarkUrl,
-      },
-      title,
-    };
+  get mobileLogoUrl() {
+    return this.site.mobileView ? settings.mobile_logo_url : null;
   }
 
-  get hasIcons() {
-    return settings.icons && settings.icons.length > 0;
+  get lightLogo() {
+    return { url: settings.logo_url || "" };
   }
 
-  get hasLinks() {
-    return settings.links && settings.links.length > 0;
+  get darkLogo() {
+    return { url: settings.logo_dark_url || "" };
   }
 
   <template>
     <div class="title">
       <a href={{settings.website_url}}>
-        {{#if this.brandLogo.mobileUrl}}
+        {{#if this.mobileLogoUrl}}
           <img
             id="brand-logo"
             class="logo-big"
-            src={{this.brandLogo.mobileUrl}}
-            title={{this.brandLogo.title}}
+            src={{this.mobileLogoUrl}}
+            title={{settings.brand_name}}
           />
-        {{else}}
+        {{else if this.lightLogo.url}}
           <LightDarkImg
             id="brand-logo"
             class="logo-big"
-            @lightImg={{this.brandLogo.lightImg}}
-            @darkImg={{this.brandLogo.darkImg}}
-            title={{this.brandLogo.title}}
+            @lightImg={{this.lightLogo}}
+            @darkImg={{this.darkLogo}}
+            title={{settings.brand_name}}
           />
+        {{else}}
+          <h2 id="brand-text-logo" class="text-logo">
+            {{settings.brand_name}}
+          </h2>
         {{/if}}
       </a>
     </div>
 
-    {{#if this.hasLinks}}
+    {{#if settings.links}}
       <nav class="links">
         <ul class="nav {{if this.shouldShow 'nav-pills'}}">
-          {{#each settings.links as |tl|}}
+          {{#each settings.links as |link|}}
             <li>
-              <a href={{tl.url}} target={{tl.target}}>
-                {{tl.text}}
+              <a href={{link.url}} target={{link.target}}>
+                {{link.text}}
               </a>
             </li>
           {{/each}}
@@ -74,13 +62,13 @@ export default class BrandHeaderContents extends Component {
       </nav>
     {{/if}}
 
-    {{#if this.hasIcons}}
+    {{#if settings.icons}}
       <div class="panel">
         <ul class="icons">
-          {{#each settings.icons as |il|}}
+          {{#each settings.icons as |iconLink|}}
             <li>
-              <a href={{il.url}} target={{il.target}}>
-                {{dIcon il.icon_name}}
+              <a href={{iconLink.url}} target={{iconLink.target}}>
+                {{dIcon iconLink.icon_name}}
               </a>
             </li>
           {{/each}}

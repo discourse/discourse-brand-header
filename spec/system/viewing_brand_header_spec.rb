@@ -63,4 +63,22 @@ RSpec.describe "Viewing the brand header", type: :system do
       'a[href="http://some.url.com/some-pencil-link"][target="_blank"] .d-icon-pencil',
     )
   end
+
+  it "shows the brand name when no logo is uploaded" do
+    theme.update_setting(:brand_name, "some name")
+    theme.save!
+
+    visit("/")
+
+    expect(page).to have_css("#brand-text-logo", text: "some name")
+  end
+
+  it "does not show the brand name when a logo is uploaded" do
+    theme.update_setting(:logo_url, "http://example.com/logo.png")
+    theme.save!
+
+    visit("/")
+
+    expect(page).to have_css('img#brand-logo[src="http://example.com/logo.png"]', visible: :all)
+  end
 end
