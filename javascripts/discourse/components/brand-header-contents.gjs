@@ -7,7 +7,7 @@ export default class BrandHeaderContents extends Component {
   @service site;
 
   get shouldShow() {
-    return !this.isMobileView || settings.show_bar_on_mobile;
+    return this.site.desktopView || settings.show_bar_on_mobile;
   }
 
   get mobileLogoUrl() {
