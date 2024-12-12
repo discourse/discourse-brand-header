@@ -20,6 +20,15 @@ RSpec.describe "Viewing the brand header", type: :system do
     expect(page).not_to have_css(".b-header")
   end
 
+  it "renders as a dropdown on mobile", mobile: true do
+    theme.update_setting(:show_bar_on_mobile, false)
+    theme.save!
+
+    visit("/")
+
+    expect(page).to have_css("#toggle-hamburger-brand-menu")
+  end
+
   it "should display the brand header with the correct title and links" do
     theme.update_setting(:website_url, "http://some.url.com")
     theme.update_setting(:brand_name, "some name")
