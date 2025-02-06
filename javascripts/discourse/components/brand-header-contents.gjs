@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
 import LightDarkImg from "discourse/components/light-dark-img";
-import dIcon from "discourse-common/helpers/d-icon";
+import dIcon from "discourse/helpers/d-icon";
 
 export default class BrandHeaderContents extends Component {
   @service site;
