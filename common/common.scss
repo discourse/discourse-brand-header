@@ -3,6 +3,7 @@
   #brand-logo {
     max-height: 32px;
   }
+
   h2 {
     margin: 0;
   }
@@ -16,6 +17,7 @@
   .title {
     float: left;
     margin-right: 24px;
+
     .rtl & {
       margin-left: 24px;
       margin-right: 0;
@@ -23,6 +25,7 @@
 
     a {
       color: var(--secondary);
+
       &:visited {
         color: var(--secondary);
       }
@@ -55,11 +58,14 @@
     > li > a {
       min-width: 0;
       color: var(--secondary);
+
       @include ellipsis;
+
       &:hover {
         color: var(--quaternary);
         background-color: var(--quaternary-low);
       }
+
       &.active > a,
       > a.active {
         color: var(--secondary);
@@ -70,6 +76,7 @@
 
   .panel {
     margin: 0 0 0 auto;
+
     .rtl & {
       margin: 0 auto 0 0;
     }
