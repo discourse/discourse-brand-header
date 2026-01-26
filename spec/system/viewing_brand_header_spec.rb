@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "Viewing the brand header", type: :system do
+RSpec.describe "Viewing the brand header" do
   let(:theme) { upload_theme_component }
 
   it "respects the `show_bar_on_mobile setting` when displaying the brand header on mobile",
