@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 el:
+  theme_metadata:
+    settings:
+      links:
+        description: Σύνδεσμοι κειμένου που θα εμφανίζονται στην κεφαλίδα
+        schema:
+          properties:
+            text:
+              label: Κείμενο
+              description: Το κείμενο που θα εμφανιστεί για τον σύνδεσμο
+            url:
+              label: URL
+              description: Η διεύθυνση URL όπου θα παραπέμπει
+            target:
+              label: Στόχος
+              description: Η ιδιότητα του στόχου για τον σύνδεσμο
+      icons:
+        description: Σύνδεσμοι εικονιδίων που θα εμφανίζονται στην κεφαλίδα
+        schema:
+          properties:
+            icon_name:
+              label: Εικονίδιο
+              description: Το όνομα του εικονιδίου FontAwesome 6 που θα εμφανίζεται για τον σύνδεσμο
+            url:
+              label: URL
+              description: Η διεύθυνση URL όπου θα παραπέμπει
+            target:
+              label: Στόχος
+              description: Η ιδιότητα του στόχου για τον σύνδεσμο
+      custom_font_awesome_icons: Λίστα εικονιδίων FontAwesome 6 που χρησιμοποιούνται σε αυτό το στοιχείο θέματος
+      show_bar_on_mobile: Όταν είναι ενεργοποιημένη, η έκδοση για υπολογιστές της γραμμής κεφαλίδας θα εμφανίζεται σε κινητές συσκευές.
