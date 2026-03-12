@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
-import { and, not } from "truth-helpers";
-import DMenu from "float-kit/components/d-menu";
+import DMenu from "discourse/float-kit/components/d-menu";
+import { and, not } from "discourse/truth-helpers";
 import BrandHeaderContents from "../../components/brand-header-contents";
 
 export default class MobileBrandHeader extends Component {
