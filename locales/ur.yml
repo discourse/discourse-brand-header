@@ -5,3 +5,33 @@
 # https://translate.discourse.org/
 
 ur:
+  theme_metadata:
+    settings:
+      links:
+        description: ہیڈر میں دکھائے جانے والے متن کے روابط
+        schema:
+          properties:
+            text:
+              label: متن
+              description: رابطہ دکھانے کے لیے متن
+            url:
+              label: URL
+              description: جس URL سے جوڑنا ہے
+            target:
+              label: ہدف
+              description: رابطہ کے ہدف کی خصوصیت
+      icons:
+        description: ہیڈر میں دکھائے جانے والے آئکن کے روابط
+        schema:
+          properties:
+            icon_name:
+              label: آئیکن
+              description: رابطہ کے دکھانے کے لیے FontAwesome 6 آئیکن کا نام
+            url:
+              label: URL
+              description: جس URL سے جوڑنا ہے
+            target:
+              label: ہدف
+              description: رابطہ کے ہدف کی خصوصیت
+      custom_font_awesome_icons: اس تھیم کے جزو میں استعمال ہونے والے FontAwesome 6 آئیکونز کی فہرست
+      show_bar_on_mobile: فعال کرنے پر، ہیڈر بار کا ڈیسک ٹاپ ورژن موبائل آلات پر دکھایا جائے گا
